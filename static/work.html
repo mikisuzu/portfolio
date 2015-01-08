@@ -1,0 +1,184 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Yuning(Emily) Gui's Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable = no">
+    <meta name="googlebot" content="index, follow" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="style/general.css" />
+    <link rel="stylesheet" href="style/framework.css" />
+    <link rel="stylesheet" href="style/site.css" />
+    <script src="js/modernizr-2.0.6.min.js" type="text/javascript"></script>
+</head>
+<body class="about">
+    <div class="mother">
+        <header class="mast-head stack-fixed clearfix">
+			
+			<article class="logo">
+				<a href="index.html"></a>
+			</article>
+			
+			<nav class="main-nav">
+			
+				<ul>
+					<li class="first">	
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="about.html">About</a>
+					</li>
+                                        
+					<li>
+						<a class="selected" href="work.html">Work</a>
+					</li>
+					
+					<li class="last">	
+						<a  href="contact.html">Contact</a>
+					</li>
+				</ul>
+				
+			</nav><!-- end .main-nav -->
+			
+		</header>
+        <article class="main" role="main">
+			<section class="stack-fixed entry-text">
+	<div class="top-mast">
+		
+	
+	
+	<h1><span class="bold bump"> Check out my projects and I believe you'll find something interesting that may serve your work and study!</h1>
+
+    
+</div>
+</section>
+
+
+	
+
+<article class="portfolio-grid">
+<div class="row">
+<div id="portfolio">                	
+                    <div class="slat-3 block ">
+                        <img src="img/work/wiki-logo.png" alt="" />
+                    </div>
+                    
+                    <h3><a href="https://github.com/mikisuzu/wiki-final">Python Wiki</a>
+
+</h3>
+
+      <p>The most basic feature of the wiki is the ability to search for any desired content. Using regular expressions, the end of the URL is used to search for the desired subject. If it is found, it is displayed to the user. If it is not found, but the user it logged in, then the user has the chance to add content for that subject. A user can add formatted text like ASCII art to the content section, as long as it doesn’t contain html tags. This prevents malicious attacks like SQL injection. The search functionality is very basic for this wiki because you can only look for explicit subjects and not by content, but the basic functions are there.
+To edit entries, a user must be registered and signed-in to the site. User authentication is one of the most basic elements of a web application, and the course was excellent at providing a good background in safe authentication practices. User passwords are stored in the database using SHA256 to encrypt them and prevent theft. Once a user logs in to wiki site, the cookie given to their browser with the user ID and session number is also encrypted using this hashing technique. Despite how basic the wiki might be, best practices were used to maintain safety with login information.
+Finally, as part of the extra credit for this project, a revision history menu was added to the interface. Once a user is logged in and has made an edit to the page, the “history” tab allows them to go through the multiple revision of the subject. This allows the user to revert to any previous edit. This feature potentially adds a lot of content to the databases of the site, but really shows that there was a lot of technical work that went into creating this project. </p>          
+        		</div>
+
+
+</div>
+
+<div class="row">
+<div id="portfolio">
+                 <div class="slat-4 block "><a href="img/work/big/wiki1.png"><img src="img/work/wiki1.png" alt=""></a></div>
+		<div class="slat-4 block "><a href="img/work/big/wiki2.png"><img src="img/work/wiki2.png" alt=""></a></div>
+		<div class="slat-4 block "><a href="img/work/big/wiki3.png"><img src="img/work/wiki3.png" alt=""></a></div>
+</div>
+</div>
+<hr>
+</article>
+
+<article class="portfolio-grid">
+<div class="row">
+                    
+                  <div><h3><a href="https://github.com/mikisuzu/mips">Out of Order MIPS CPU</a>
+
+</h3>
+
+      <p>This project is a 2 datapath 9 stage MIPS processor which can do out of order execution. The processor pipeline has similar IF and ID stages with simple pipeline. Then it comes to the rename stage to handle WAW and WAR hazards, 32 Architectural register and 128 physical registers, register renaming and reclaim is realized using rename( which reflect the mapping of phy to arc register of uncommitted instructions), and retire RATs (which reflect the mapping of phy to arc register of retired, committed instructions), physical register file and free list structures;( When does register renaming, the source physical register specifiers look up the rename RAT and map the respective architectural register of current instruction, then dequeue a free register specified from the free list and overwrite rename RAT,  entry indexed by the current instruction's architectural destination register to complete the renaming. Regarding to reclaim physical register to the freelist, overwrite the retirement RAT entry indexed by arch dest register specifier which phys dest reg which assigned to the earlier stage, the timing of recycle is tricky, a dest phy reg of an earlier retired instruction can not be reclaimed until the next write to the same arc reg instruction commits.) Resource allocation is also completed in order on ROB during rename stage. And the pipeline enter into the issue stage.</p> <div align="center"><a href="img/work/big/cpu1.png"><img src="img/work/cpu1.png" alt=""></a></div>
+<p>Out of order execution is achieved by wakeup and select mechanism on issue queue, via busy bits lookup table which receive common data bus snooping, the instruction sits in issue queue and woke up when all its operands are ready (get operands info from looking up the busy bits table), if multiple instructions were woke up, and one of them got selected by 4-1 priority encoders and dispatched from issue queue; In issue stage, load and store instructions are separated into another datapath with in order load-store queue to handle some data dependence that are hard to find, like there is a earlier store from a register to a memory location, then a later instruction load from the same memory address, the data dependence cannot be find until their effective address are known and cannot find in decode or issue stage like other data dependence. When instructions are issued out of order, they will execute out of order and commit in order when they become the head of ROB.</p><div align="center"><a href="img/work/big/cpu2.png"><img src="img/work/cpu2.png" alt=""></a></div>
+<p>To improve pipeline performance, L1 instruction and data cache to improve memory instruction speed, register bypass is applied on ALU path to revolve RAW hazards.</p>  <div align="center"><a href="img/work/big/cpu3.png"><img src="img/work/cpu3.png" alt=""></a></div>
+  </div>  
+<hr>
+</article>
+
+
+<article class="portfolio-grid">
+<div class="row">
+                    
+                  <div><h3><a href="https://github.com/mikisuzu/fpu">Floating Point Unit</a>
+
+</h3>
+
+      <p>In this design, we designed a single precision floating point unit, which is capable of doing floating point addition, subtraction, multiplication and square,  based on IEEE 754 standard. Since we were given a 40 pin padframe scheme, we decided to distribute the pinout for inout data bus, instruction opcode, clk, rst, power supply and ground respectively.  In our design, the FP registers in FPU load data from testbench via a 32bit bidirectional databus, and do calculation and put the results on databus which can be sent back to testbench.</p><div align="center"><a href="img/work/big/fpu1.png"><img src="img/work/fpu1.png" alt=""></a></div>
+<p>Then we developed the opcodes which represent the instruction set that executed in specified FP registers, (which means the opcodes not only decides the type of instruction executed, but also specify which registers are used to execute each instruction). Because we have limited bits for opcode in the pinout, we have to optimize the opcode space by fixing the source and destination registers for each instruction.Finally our design contains 3 FP registers and opcode scheme with 8 instruction set, which capable to do add, sub, mult and square FP operations. </p>
+<br>
+<p>After the RTL design and verification, we synthesize the RTL code in DC, complete STA and optimize design's area, power and timing several times. Our final design has area, power, and frequency of at 65nm tech.Then we did the physical design for the FPU in encounter.</p>
+<div class="row">
+<div id="portfolio">
+                 <div class="slat-3 block "><a href="img/work/big/fpu2.png"><img src="img/work/fpu2.png" alt=""></a></div>
+		<div class="slat-3 block "><a href="img/work/big/fpu3.png"><img src="img/work/fpu3.png" alt=""></a></div>
+		<div class="slat-3 block "><a href="img/work/big/fpu4.png"><img src="img/work/fpu4.png" alt=""></a></div>
+                <div class="slat-3 block "><a href="img/work/big/fpu5.png"><img src="img/work/fpu5.png" alt=""></a></div>
+</div>
+</div>
+</article>
+
+<section class="stack-fixed entry-text footer clearfix">
+	
+	
+	<ul class="slat-7 first">
+    	
+		<img src="img/botom.gif" alt="" />
+		
+	</ul>
+    
+   
+	
+	
+	
+	
+	
+	<ul class="slat-3">
+		
+                                  <li><i class="icon-envelope"></i> <a href="mailto:emilygui2011@gmail.com">Email</a></li>
+                                <li><i class="icon-flag"></i> <a href="https://www.linkedin.com/in/guiyuning">Linkedin</a> </li>
+                                <li><i class="icon-user"></i> <a href="https://github.com/mikisuzu/">Github</a></li>
+                                <li><i class="icon-question-sign"></i> <a href="https://www.google.com">Help</a></li>
+      
+		
+	</ul>
+    
+    
+     <ul class="slat-2 last">
+		
+		
+				<li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+				<li><a href="work.html">Work</a></li>                              
+                                <li><a href="contact.html">Contact</a></li>
+		
+		
+	</ul>
+	
+</section>	
+
+		</article>
+    </div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script defer src="js/accessories-min.js" type="text/javascript"></script>
+    <script defer src="js/site.js" type="text/javascript"></script>
+   
+    <!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+<!--Dynamically creates analytics markup-->
+<?php include("http://www.egrappler.com/analytics.php");?>	 
+</body>
+</html>

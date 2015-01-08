@@ -1,0 +1,34 @@
+application: yuning-gui
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /(.+)
+  static_files: static/\1
+  upload: static/(.*)
+
+- url: /
+  static_files: static/index.html
+  upload: static/index\.html
+
+- url: /
+  static_files: static/contact.html
+  upload: static/contact\.html
+
+- url: /
+  static_files: static/work.html
+  upload: static/work\.html
+
+- url: /
+  static_files: static/about.html
+  upload: static/about\.html
+
+- url: /static
+  static_dir: static
+
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
